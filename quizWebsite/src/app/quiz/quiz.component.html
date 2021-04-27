@@ -1,0 +1,12 @@
+<h2>{{ question?.Question }}</h2>
+<div class="radio-options" *ngFor="let option of question.Answer_choices">
+    <label class="font-weight-normal" >
+        <input   [value]="option.optionValue" [checked]="selectedOption == option"
+        id="{{option.id}}" type="radio" (click)="onSelect(option);" > 
+        <label>{{option.Option}}</label>
+    </label>
+</div>
+<div *ngIf="selectOptionToast">
+    select an option before going to next
+</div>
+<button (click)="Next(question)">save and next</button>
